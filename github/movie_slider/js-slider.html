@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image slider</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+	<style type="text/css">
+		img{
+			width: 550px;
+			height: 300px;
+		}
+		 #slider{
+		 	width: 550px;
+		 	height: 300px;
+		 	margin: 20px auto;
+		 	position: relative;
+		 	border: 10px solid white;
+		 	box-shadow: 0px 0px 5px 2px #ccc;
+		 }
+		 button{
+		 	padding: 07px;
+		 	border: none;
+		 	background: #37f;
+		 	font-size: 30px;
+		 	color: white;
+		 	position: absolute;
+		 	top:45%;
+		 	cursor: pointer;
+		 }
+
+        .next{
+        	border-radius: 07px 0px 0px 07px;
+        	margin-left: 525px;
+        }
+        .prew{
+        	border-radius: 0px 07px 07px 0px;
+        }
+
+	</style>
+</head>
+<body>
+
+  <script type="text/javascript">
+	<div id="slider">
+		<div id="box">
+			<img src="sanju.jpg">
+	</div>
+
+		<!-- buttons for controls slider -->
+		<button class="prew fa fa-chevron-left" onclick="prewImage()"></button>
+		<button class="next fa fa-chevron-right" onclick="nextImage()"></button>
+	</div>
+
+
+
+
+  	var slider_content = document.getElementById('box');
+
+  	// contain images in an array
+
+    var image = ['sanju','td', 'ca', 'lukachupi'];
+
+    var i = image.length;
+
+
+    // function for next slide 
+
+    function nextImage(){
+    	if (i<image.length) {
+    		i= i+1;
+    	}else{
+    		i = 1;
+    	}
+    	  slider_content.innerHTML = "<img src="+image[i-1]+".jpg>";
+    }
+
+
+    // function for prew slide
+
+    function prewImage(){
+
+    	if (i<image.length+1 && i>1) {
+    		i= i-1;
+    	}else{
+    		i = image.length;
+    	}
+    	  slider_content.innerHTML = "<img src="+image[i-1]+".jpg>";
+
+    }
+
+  // script for auto image slider
+
+  setInterval(nextImage , 2000);
+
+  </script>
+
+
+
+</body>
+</html>
